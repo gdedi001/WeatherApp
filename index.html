@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <title>WeatherApp - Gabriel de Diego</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Uncomment for release
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -14,32 +14,30 @@
         <div class="row text-center">
             <!-- Heading Text -->
             <div class="col-md-12">
-                <h1 id="greeting">Your Current Weather</h1>
-                <div id="btnWeather">CLICK ME FOR WEATHER INFORMATION</div>
+                <h1 id="greeting">Your Local Weather</h1>
+                <button id="btnWeather" class="btn btn-lg btn-success">Get My Local Conditions</button>
+                <span id="arrwDown" style="display:block"><i class="glyphicon glyphicon-menu-down"></i></span>
             </div>
         </div>
         <!-- Tier 1 Weather Info -->
-        <div class="row">
-            <div class="col-md-2 col-md-offset-3">
-                <div id="weatherIcon">
-                
-                </div>
-            </div>
-            <div class="col-md-2 col-md-offset-2">
-                <div id="temp">
-                
-                </div>
+        <div class="row text-center">
+            <div class="col-md-12" id="tier1">
+                <span id="weatherIcon"></span>
+                <span id="temp"></span>
             </div>
         </div>
         <!-- Tier 2 Weather Info -->
         <div class="row text-center">
-            <div class="">
-            
+            <div class="col-md-12" id="tier2">
+                <span id="location" class="info"></span>
+                <span id="description" class="info"></span>
+                <span id="wind" class="info"></span>
             </div>
         </div>
     </div>
 
-    
+    <!-- Audio -->
+    <audio id="audio" src="Audio/sm64_happy_message.wav"></audio>
     <!-- Scripting Section -->
     <script src="js/jquery-1.11.3.min.js"></script>
     <!-- Uncomment for release

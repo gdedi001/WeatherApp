@@ -1,0 +1,79 @@
+body {
+     background: #000000 url("http://blog.ioncube.com/wp-content/uploads/2013/12/cloud-wallpaper-hd-background-5.png") no-repeat center fixed;
+    background-size: cover;
+    
+    -webkit-background: #000000 url("http://blog.ioncube.com/wp-content/uploads/2013/12/cloud-wallpaper-hd-background-5.png") no-repeat center fixed;
+    -webkit-background-size: cover;
+    
+    -moz-background: url("http://blog.ioncube.com/wp-content/uploads/2013/12/cloud-wallpaper-hd-background-5.png") no-repeat center fixed;
+    -moz-background-size: cover;
+    
+    -o-background: url("http://blog.ioncube.com/wp-content/uploads/2013/12/cloud-wallpaper-hd-background-5.png") no-repeat center fixed;
+    -o-background-size: cover;   
+}
+
+#greeting {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#btnWeather {
+    margin-top: 1.5%;
+    font-family: 'Comfortaa', cursive;
+}
+
+#arrwDown {
+    color: white;
+    font-size: 20px;
+    position: relative;
+    -webkit-animation: mymove 3s;  /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite;  /* Chrome, Safari, Opera */
+    -moz-animation: mymove 3s;
+    -moz-animation-iteration-count: infinite;
+    animation: mymove 3s;
+    animation-iteration-count: infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {top: 15px;}
+    to {top: 300px;}
+}
+
+@keyframes mymove {
+    from {top: 5px;}
+    to {top: 300px;}
+}
+
+#tier1 {
+    margin-top: 4%; 
+}
+
+#tier2 {
+    margin-top: 3.5%;   
+}
+
+#weatherIcon {
+    width: 65px;
+}
+
+#temp {
+    color: white;
+    font-family: 'Comfortaa', cursive;
+    font-size: 30px;
+}
+
+#location, #description, #wind {
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 0.3em;
+    box-shadow: .2em .2em .2em #444;
+    color: #7F3320;
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    margin: 0 auto;
+    opacity: 0;
+    padding: 2% 1% 2% 1%;
+}
+
+

@@ -3,22 +3,22 @@ var gpsReady = false;
 var response;
         
 //navigator.geolocation.getCurrentPosition(locationSuccess, locationFail);
-function locationSuccess(position)
-{
+function locationSuccess(position) {
+    
     var lat = position.coords.latitude.toString();
     var lon = position.coords.longitude.toString();
-    weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon;
+    weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial";
     console.log(weatherURL);
     gpsReady = true;
 }
 
-function locationFail()
-{
+function locationFail() {
+    
     alert("Unable to find current location. Please try again.");   
 }
 
-function connectAPI()
-{
+function connectAPI() {
+    
     var xhr = new XMLHttpRequest(); // Create new request object
     xhr.open('GET', weatherURL, false); // Initializes a request.
     xhr.send(); // Send the request that was created
@@ -28,41 +28,48 @@ function connectAPI()
     console.log(response); 
 }
 
-// Function that converts the default Kelvin temperature to Fahrenheit
-function convertToF(kelvinTemp) {
-    return 1.8 * (kelvinTemp - 273) + 32;
+function Info(response) {
+    this.temp = Math.round(response.main.temp);
+    this.city = response.name + ", " + response.sys.country;
+    this.desc = response.weather[0].description;
+    this.icon = response.weather[0].icon;
+    this.windSpeed = response.wind.speed;
+    this.windDir = response.wind.deg;
 }
 
-// Function that converts the default Kelvin temperature to Celsius
-function convertToC(kelvinTemp) {
-    return kelvinTemp - 273.15;
-}
+// Create prototype to conserve memory
+Info.prototype = {
+    // Function that converts the temperature to Celsius
+    tempC: function() {
+        return Math.round(this.temp - 273.15) + '°C';   
+    },
+    
+    // Function that converts the wind direction from default degrees to a rough estimate compass direction 
+    compassDir: function() {
+        if (this.windDir < 30 || (this.windDir > 330 && this.windDir <= 360)) {
+            return '~N';  
 
-// Function that converts the wind direction from default degrees to a rough estimate compass direction 
-function compassDeg(windDir) {
-    if (windDir < 30 || (windDir > 330 && windDir <= 360)) {
-        return 'N';  
-        
-    } else if (windDir >= 30 && windDir <= 60) {
-        return 'NE';  
-        
-    } else if (windDir > 61 && windDir < 120) {
-        return 'E';   
-        
-    } else if (windDir >= 120 && windDir <= 150) {
-        return 'SE';   
-        
-    } else if (windDir > 151 && windDir < 210) {
-        return 'S';  
-        
-    } else if (windDir >= 210 && windDir <= 240) {
-        return 'SW';   
-        
-    } else if (windDir > 241 && windDir < 300) {
-        return 'W';   
-        
-    } else {
-        return 'NW';
+        } else if (this.windDir >= 30 && this.windDir <= 60) {
+            return '~NE';  
+
+        } else if (this.windDir > 61 && this.windDir < 120) {
+            return '~E';   
+
+        } else if (this.windDir >= 120 && this.windDir <= 150) {
+            return '~SE';   
+
+        } else if (this.windDir > 151 && this.windDir < 210) {
+            return '~S';  
+
+        } else if (this.windDir >= 210 && this.windDir <= 240) {
+            return '~SW';   
+
+        } else if (this.windDir > 241 && this.windDir < 300) {
+            return '~W';   
+
+        } else {
+            return '~NW';
+        }
     }
-}
+};
 
