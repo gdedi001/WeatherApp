@@ -55,7 +55,8 @@ $(document).ready(function() {
             $('#btnWeather').attr('disabled', true);
             
         } else {
-            // alert("Loading GPS information... \nPlease make sure GPS settings are turned on.");
+            alert("Loading GPS information... \nPlease make sure GPS settings are turned on.");
+            // TODO: Change alert message and instead display message inside #btnWeather 
             $('#btnWeather')
         }
     });

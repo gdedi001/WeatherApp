@@ -46,7 +46,7 @@ body {
 }
 
 #tier1 {
-    margin-top: 4%; 
+    margin-top: 3.5%; 
 }
 
 #tier2 {
@@ -74,6 +74,29 @@ body {
     margin: 0 auto;
     opacity: 0;
     padding: 2% 1% 2% 1%;
+    position: relative;
 }
+
+
+/* Responsive Design and Implementation Section */
+@media only screen and (max-width: 350px)
+{
+    #greeting {
+        font-size: 25px;   
+    }
+    
+    #btnWeather {
+        font-size: 13px;   
+    }
+    
+    .info {
+        font-size: 12px;   
+    }
+    
+    #description:before {
+        content: '\00000A'; 
+    }
+}
+
 
 
