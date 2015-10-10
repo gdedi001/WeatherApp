@@ -7,7 +7,7 @@ function locationSuccess(position) {
     
     var lat = position.coords.latitude.toString();
     var lon = position.coords.longitude.toString();
-    weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial";
+    weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&APPID=d9a0154d857922ad305e0e67bbd110d6";
     console.log(weatherURL);
     gpsReady = true;
 }
